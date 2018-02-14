@@ -37,6 +37,9 @@ thorragnarock = media.Movie("Thor Ragnarock",
                             "Thor_Ragnarok_poster.jpg",
                             "https://youtu.be/ue80QwXMRHg")
 
-
+# Array of movies in the webpage.
 movies = [toy_story, avatar, pele, blackpanther, ironman, thorragnarock]
+
+# This function sends the list of all movies in the array to be executed
+# and makes them get executed
 fresh_tomatoes.open_movies_page(movies)
