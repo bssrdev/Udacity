@@ -1,5 +1,5 @@
 # Logs Analysis Project
-This project is a part of the Udacity's Full Stack Web Developer Nanodegree.
+In this project we are giving a summary from logs by sql database queries.
 
 ## Technologies used
 1. PostgreSQL
