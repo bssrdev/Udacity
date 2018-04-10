@@ -1,11 +1,6 @@
 # Logs Analysis Project
 In this project we are giving a summary from logs by sql database queries.
 
-## Technologies used
-1. PostgreSQL
-2. Writing Python code with DB-API
-3. Linux-based virtual machine (VM) Vagrant
-
 ### Softwares used:
 - Python3
 - Vagrant
