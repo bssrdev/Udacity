@@ -18,3 +18,42 @@ The database includes three tables:
 - Log table
 
 To execute the program, run `python3 newsdata.py` from the command line.
+
+## Views used
+#### statustotal
+````sql
+CREATE VIEW statustotal AS
+SELECT time ::date,
+       status
+FROM log;
+````
+#### statusfailed
+````sql
+CREATE VIEW statusfailed AS
+SELECT time,
+       count(*) AS num
+FROM statustotal
+WHERE status = '404 NOT FOUND'
+GROUP BY time;
+````
+#### statusall
+````sql
+CREATE VIEW statusall
+SELECT time,
+       count(*) AS num
+FROM statustotal
+WHERE status = '404 NOT FOUND'
+  OR status = '200 OK'
+GROUP BY time;
+````
+#### percentagecount
+````sql
+CREATE VIEW percentagecount AS
+SELECT statusall.time,
+       statusall.num AS numall,
+       statusfailed.num AS numfailed,
+       statusfailed.num::double precision/statusall.num::double precision * 100 AS percentagefailed
+FROM statusall,
+     statusfailed
+WHERE statusall.time = statusfailed.time;
+````
